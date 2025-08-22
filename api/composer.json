@@ -1,4 +1,6 @@
 {
+    "name": "back-2-95/suomi-some-feedit",
+    "description": "Suomi.fi FEEDIT",
     "type": "project",
     "license": "MIT",
     "require": {
