@@ -14,7 +14,6 @@ services:
       #- /app/vendor
     environment:
       FRANKENPHP_WORKER_CONFIG: watch
-      MERCURE_EXTRA_DIRECTIVES: demo
       SERVER_NAME: :80 # This makes Traefik work
       # See https://xdebug.org/docs/all_settings#mode
       XDEBUG_MODE: ${XDEBUG_MODE:-off}
@@ -22,9 +21,20 @@ services:
       # Ensure that host.docker.internal is correctly defined on Linux
       - host.docker.internal:host-gateway
     tty: true
+    ports: !reset []
     labels:
       traefik.enable: true
-      traefik.http.routers.acdr-card-dev.entrypoints: https
-      traefik.http.routers.acdr-card-dev.rule: Host(`${APP_HOST:?APP_HOST is missing}`)
-      traefik.http.routers.acdr-card-dev.tls: true
+      traefik.http.routers.suomi-some-feedit-dev.entrypoints: https
+      traefik.http.routers.suomi-some-feedit-card-dev.rule: Host(`${APP_HOST:?APP_HOST is missing}`)
+      traefik.http.routers.suomi-some-feedit-card-dev.tls: true
       traefik.docker.network: ${TRAEFIK_NETWORK:-traefik-network}
+    networks:
+      - default
+      - traefik-network
+
+networks:
+  default:
+    name: ${COMPOSE_PROJECT_NAME}
+  traefik-network:
+    external: true
+    name: ${TRAEFIK_NETWORK:-traefik-network}
