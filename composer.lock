@@ -390,16 +390,16 @@
         },
         {
             "name": "api-platform/metadata",
-            "version": "v4.1.18",
+            "version": "v4.1.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/api-platform/metadata.git",
-                "reference": "5df40a760eef56963c151181dc9498bbc260e7ae"
+                "reference": "9158aa2ab7090c135336f38816ce0d8226e526b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/api-platform/metadata/zipball/5df40a760eef56963c151181dc9498bbc260e7ae",
-                "reference": "5df40a760eef56963c151181dc9498bbc260e7ae",
+                "url": "https://api.github.com/repos/api-platform/metadata/zipball/9158aa2ab7090c135336f38816ce0d8226e526b5",
+                "reference": "9158aa2ab7090c135336f38816ce0d8226e526b5",
                 "shasum": ""
             },
             "require": {
@@ -409,7 +409,7 @@
                 "psr/log": "^1.0 || ^2.0 || ^3.0",
                 "symfony/property-info": "^6.4 || ^7.1",
                 "symfony/string": "^6.4 || ^7.0",
-                "symfony/type-info": "^7.2"
+                "symfony/type-info": "^7.3"
             },
             "require-dev": {
                 "api-platform/json-schema": "^4.1.11",
@@ -481,9 +481,9 @@
                 "swagger"
             ],
             "support": {
-                "source": "https://github.com/api-platform/metadata/tree/v4.1.18"
+                "source": "https://github.com/api-platform/metadata/tree/v4.1.21"
             },
-            "time": "2025-07-03T13:06:55+00:00"
+            "time": "2025-07-29T08:54:26+00:00"
         },
         {
             "name": "api-platform/openapi",
