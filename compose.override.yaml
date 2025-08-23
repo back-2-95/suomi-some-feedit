@@ -25,7 +25,7 @@ services:
     labels:
       traefik.enable: true
       traefik.http.routers.suomi-some-feedit-dev.entrypoints: https
-      traefik.http.routers.suomi-some-feedit-card-dev.rule: Host(`${APP_HOST:?APP_HOST is missing}`)
+      traefik.http.routers.suomi-some-feedit-card-dev.rule: Host(`${SERVER_NAME:?SERVER_NAME is missing}`)
       traefik.http.routers.suomi-some-feedit-card-dev.tls: true
       traefik.docker.network: ${TRAEFIK_NETWORK:-traefik-network}
     networks:
