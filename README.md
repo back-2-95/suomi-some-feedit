@@ -1,5 +1,7 @@
-# API
+# Suomi Some feedit Blueskystä
 
-The API will be here.
+Build images and run:
 
-Refer to the [Getting Started Guide](https://api-platform.com/docs/distribution) for more information.
+```console
+docker compose up --build --wait
+```
