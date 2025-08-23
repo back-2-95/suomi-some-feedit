@@ -5,21 +5,34 @@ namespace App\State;
 use ApiPlatform\Metadata\CollectionOperationInterface;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\State\ProviderInterface;
-use App\Entity\Post;
+use App\Service\PublicBlueskyApiService;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 
-class PostProvider implements ProviderInterface
+readonly class PostProvider implements ProviderInterface
 {
+    public function __construct(private PublicBlueskyApiService $publicApi)
+    {
+    }
+
+    /**
+     * @throws TransportExceptionInterface
+     * @throws ServerExceptionInterface
+     * @throws RedirectionExceptionInterface
+     * @throws DecodingExceptionInterface
+     * @throws ClientExceptionInterface
+     */
     public function provide(Operation $operation, array $uriVariables = [], array $context = []): object|array|null
     {
-        $post = new Post();
-
         if ($operation instanceof CollectionOperationInterface) {
-            $post->id = '2342rfuwsedgfhsdgf';
-            return [$post];
+            $did = $operation->getParameters()->get('did')->getValue();
+
+            return $this->publicApi->getAuthorFeed($did);
         }
 
-        $post->id = $uriVariables['id'];
-
-        return $post;
+        return null;
     }
 }

@@ -1,0 +1,7 @@
+framework:
+    http_client:
+        scoped_clients:
+            bluesky.client:
+                base_uri: 'https://public.api.bsky.app/xrpc/'
+                headers:
+                    Accept: 'application/json'
