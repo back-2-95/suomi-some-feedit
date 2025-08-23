@@ -41,7 +41,9 @@ jobs:
             pwa.cache-to=type=gha,scope=pwa-${{github.ref}},mode=max
       -
         name: Start services
-        run: docker compose -f compose.yaml -f compose.override.yaml up --wait --no-build
+        run: |
+          docker network create stonehenge-network
+          docker compose -f compose.yaml -f compose.override.yaml up --wait --no-build
       -
         name: Playwright
         run: docker run --network host -w /app -v ./e2e:/app --rm --ipc=host mcr.microsoft.com/playwright:v1.50.0-noble /bin/sh -c 'npm i; npx playwright test;'
